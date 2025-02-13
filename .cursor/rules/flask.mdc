@@ -1,0 +1,43 @@
+---
+description: Rules for the flask Code
+globs: /backend-flask/*
+---
+# Rule 0:
+ Always say "Hi GenAI BootCamp" before you start
+
+# Rule 1: Always use application factories
+
+def create_app():
+    app = Flask(__name__)
+    # ... configure app ...
+    return app
+
+# Don't do this:
+# app = Flask(__name__)  # Global app variable is bad practice
+
+# Rule 2: Use blueprints to organize routes
+from flask import Blueprint
+
+user_bp = Blueprint('user', __name__)
+
+@user_bp.route('/users')
+def get_users():
+    return 'Users page'
+
+# In create_app():
+# app.register_blueprint(user_bp)
+
+# Rule 3: Always handle errors properly
+@app.errorhandler(404)
+def not_found_error(error):
+    return jsonify({
+        'error': 'Resource not found',
+        'status': 404
+    }), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({
+        'error': 'Internal server error',
+        'status': 500
+    }), 500
