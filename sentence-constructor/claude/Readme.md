@@ -2,9 +2,9 @@
 
 ### Which Model
 
-Claude Sonnet 3.5 (2025 Q1)
+Claude 3.5 Haiku 
 
-> I have the paid version of Claude Sonnet, and we're going to use projects.
+> I have the free version of Claude Sonnet, and we're going to use projects.
 
 ## Prompting Guides
 
